@@ -12,8 +12,10 @@ Git is a distributed version control system that allows you to keep track of you
 ## Git Commands
 - `git init`
 - `git add`
+    - Adds a file to tracking
 - `git commit`
 - `git status`
+    - Tells current status of git repository
 - `git push`
 - `git pull`
 - `git clone`
