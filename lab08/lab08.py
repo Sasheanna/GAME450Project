@@ -131,9 +131,10 @@ def retrieve_context(collection: chromadb.Collection, query: str, n_results: int
     """
 
     # "This function should use the ChromaDB collection to retrieve the top 3 most relevant context chunks for a given query"
-
+    print("pause here")
     context_retrieved = collection.query(
-        query_embeddings=collection.get(),
+        query_texts=query,
+        query_embeddings=collection.get(embedding_function),
         n_results=n_results,
         where={"metadata_field": "is_equal_to_this"},
         where_document={"$contains":"search_string"}
@@ -209,6 +210,7 @@ def main():
         chunks, 
         ollama_model=embedding_model
     )
+    print("test!")
     # 4. Example queries
     queries = [
         "What abilities do wizards have in D&D?",
