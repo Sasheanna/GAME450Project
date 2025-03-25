@@ -1,0 +1,23 @@
+{
+    "model": "llama3.2",
+    "options":{
+        "temperature": 0,
+        "sign": "Team something"
+    },
+    "messages": [{"role": "system", "content": "When the player is purchasing goods, you will use the 'purchase' tool call."}
+        ,{"role": "assistant", "content": ""}
+    ],
+    "tools": [
+        {
+            "type": "function",
+            "function": {
+                "name": "purchase",
+                "description": "Purchase is used to check that the player has the funds to purchase a specified quantity of goods. The cost will be deducted from the players available funds and the goods will be added to the players inventory.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {"money_available": {"type": "int"}, "cost": {"type": "int"}, "items": {"type": "string"}, "quantity": {"type": "int"}, "player": {"type": "string"}}
+                }
+              }
+            }
+          ]
+        }

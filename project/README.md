@@ -12,6 +12,9 @@ Write rationale here
 
 # Tools Usage
 Uses tool calls if necessary
+ - Dice rolls 
+ - Purchaing goods
+ - Accessing json data
 
 # Planning and Reasoning
 Coherent conversation and chain-of-thought models used (or something like that)
@@ -32,7 +35,10 @@ Good coding and version control practices
 
 - Other NPC templates
 - Prompt engineer to improve the DM
-- Implement dice rolling through tool calls
+- Implement tool calls
+    - Dice roll
+    - Access player data
+    - Purcahse items 
 - Progress system
     - Might involve RAG?
 - Basic combat system

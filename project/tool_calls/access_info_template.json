@@ -1,0 +1,23 @@
+{
+    "model": "llama3.2",
+    "options":{
+        "temperature": 0,
+        "sign": "Team something"
+    },
+    "messages": [{"role": "system", "content": "When it is needed, you will use the 'access_player_info' tool when you need information about a specific part of the character."}
+        ,{"role": "assistant", "content": ""}
+    ],
+    "tools": [
+        {
+            "type": "function",
+            "function": {
+                "name": "access_player_info",
+                "description": "Accesses a json file containing all of the players information.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {"player": {"type": "string"}}
+                }
+              }
+            }
+          ]
+        }

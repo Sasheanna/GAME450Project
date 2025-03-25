@@ -1,0 +1,23 @@
+{
+    "model": "llama3.2",
+    "options":{
+        "temperature": 0,
+        "sign": "Team something"
+    },
+    "messages": [{"role": "system", "content": "When it is needed, you will use the 'roll_for' tool when the player meedds to pass a skill check. You are in control of what activities need a skill check. The player can ask for a skill check at any point, if they do use the 'roll_for' to complete the skill check."}
+        ,{"role": "assistant", "content": ""}
+    ],
+    "tools": [
+        {
+            "type": "function",
+            "function": {
+                "name": "roll_for",
+                "description": "Rolls dice to determine if a player passed a skill check, where dc is the difficulty class and player is the player involved",
+                "parameters": {
+                    "type": "object",
+                    "properties": {"skill": {"type": "string"}, "dc": {"type": "int"}, "player": {"type": "string"}}
+                }
+              }
+            }
+          ]
+        }
