@@ -31,8 +31,8 @@ Good coding and version control practices
 # To-do
 
 - Other NPC templates
-- Prompt engineer to improve the DM
-- Implement dice rolling through tool calls
+- Prompt engineer to improve the DM *
+- Implement dice rolling through tool calls 
 - Progress system
     - Might involve RAG?
 - Basic combat system
