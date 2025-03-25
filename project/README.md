@@ -27,3 +27,18 @@ Use at least one creative or optional add-on (some examples are text-to-speech o
 # Code Quality and Modular Design
 
 Good coding and version control practices
+
+# To-do
+
+- Other NPC templates
+- Prompt engineer to improve the DM
+- Implement dice rolling through tool calls
+- Progress system
+    - Might involve RAG?
+- Basic combat system
+    - Maybe use dictionary?
+    - Maybe use RAG?
+- NPC image generation
+    - Has to get from external image generator
+- Player sheet created on first session
+    - Stored somewhere (json), AI *cannot* modify.
