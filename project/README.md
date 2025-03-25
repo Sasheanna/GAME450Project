@@ -34,11 +34,11 @@ Good coding and version control practices
 # To-do
 
 - Other NPC templates
-- Prompt engineer to improve the DM
+- Prompt engineer to improve the DM *
 - Implement tool calls
     - Dice roll
     - Access player data
-    - Purcahse items 
+    - Purcahse items  
 - Progress system
     - Might involve RAG?
 - Basic combat system
