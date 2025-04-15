@@ -5,6 +5,7 @@ sys.path.append(str(Path(__file__).parents[1]))
 import random
 from util.llm_utils import run_console_chat, tool_tracker
 
+#from RAG_operations import 
 
 @tool_tracker
 
@@ -44,4 +45,5 @@ def process_response(self, response):
 
 
 run_console_chat(template_file='project/DM_template.json',
-                 process_response=process_response)
+                 process_response=process_response,
+                 end_regex=r'END SESSION')

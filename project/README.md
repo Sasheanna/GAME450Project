@@ -13,7 +13,7 @@ Write rationale here
 # Tools Usage
 Uses tool calls if necessary
  - Dice rolls 
- - Purchaing goods
+ - Purchasing goods
  - Accessing json data
 
 # Planning and Reasoning
