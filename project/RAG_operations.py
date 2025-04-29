@@ -147,8 +147,8 @@ def generate_response(query: str, contexts: Dict[str, List[List[str]]], model: s
     # Create prompt with context
     context_text = "\n\n".join(contexts['documents'][0])
     
-    prompt = f"""You are a helpful assistant retrieving information for players about a fantasy.
-    Use the following information to answer the question.
+    prompt = f"""You are a storyteller that uses the provided information to tell short fantasy stories.
+    Use the following information to respond to the user.
     
     Context:
     {context_text}
@@ -233,7 +233,7 @@ def main():
         ollama_model=embedding_model
     )
     # 4. Example queries
-    query = "What aspects are there?"
+    query = "Tell me a story!"
     
     # Retrieve context
     contexts = retrieve_context(collection, query)
