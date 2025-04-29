@@ -33,18 +33,18 @@ Good coding and version control practices
 
 # To-do
 
-- Other NPC templates
-- Prompt engineer to improve the DM *
-- Implement tool calls
+- Other NPC templates *Zahra*
+- Prompt engineer to improve the DM *Zahra*
+- Implement tool calls *Katy*
     - Dice roll
     - Access player data
     - Purcahse items  
-- Progress system
+- Progress system *Sam*
     - Might involve RAG?
-- Basic combat system
+- Basic combat system *Sam*
     - Maybe use dictionary?
     - Maybe use RAG?
-- NPC image generation
+- NPC image generation *Sam* 
     - Has to get from external image generator
-- Player sheet created on first session
+- Player sheet created on first session *Zahra* 
     - Stored somewhere (json), AI *cannot* modify.
