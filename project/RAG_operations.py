@@ -135,22 +135,20 @@ def retrieve_context(collection: chromadb.Collection, query: str, n_results: int
     context_retrieved = collection.query(
         query_texts=query,
         n_results=n_results,
-        where={"metadata_field": "is_equal_to_this"},
-        where_document={"$contains":"search_string"}
     )
     print(context_retrieved)
     return context_retrieved
 
     
-def generate_response(query: str, contexts: List[str], model: str = "mistral:latest") -> str:
+def generate_response(query: str, contexts: Dict[str, List[List[str]]], model: str = "mistral:latest") -> str:
     """
     Generate a response using Ollama LLM with the retrieved context
     """
     # Create prompt with context
-    context_text = "\n\n".join(contexts)
+    context_text = "\n\n".join(contexts['documents'][0])
     
-    prompt = f"""You are a helpful assistant for Dungeons & Dragons players.
-    Use the following information to answer the question.
+    prompt = f"""You are a storyteller that uses the provided information to tell short fantasy stories.
+    Use the following information to respond to the user.
     
     Context:
     {context_text}
@@ -211,3 +209,41 @@ def query_collection(collection: chromadb.Collection, query):
     
     # Display results
     display_results(query, contexts, response)
+
+
+def main():
+    """
+    Main function to run the RAG demo
+    """
+    
+    # Set embedding and LLM models
+    embedding_model = "nomic-embed-text"  # Change to your preferred embedding model
+    llm_model = "llama3.2:latest"  # Change to your preferred LLM model
+    
+    # 1. Load documents
+    data_dir = "project/data"
+    documents = load_documents(data_dir)
+    
+    # 2. Chunk documents using ChromaDB chunker
+    chunks = chunk_documents(documents)
+    
+    # 3. Set up ChromaDB with Ollama embeddings
+    collection = setup_chroma_db(
+        chunks, 
+        ollama_model=embedding_model
+    )
+    # 4. Example queries
+    query = "Tell me a story!"
+    
+    # Retrieve context
+    contexts = retrieve_context(collection, query)
+    
+    # Generate response
+    response = generate_response(query, contexts, model=llm_model)
+    
+    # Display results
+    display_results(query, contexts, response)
+    
+
+if __name__ == "__main__":
+    main() 

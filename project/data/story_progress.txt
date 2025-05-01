@@ -1,7 +1,10 @@
 # Dungeons & Dragons Story
 
 ## Act 1
+The player hears whispers of a growing evil and hints that ancient artifacts are being rediscovered. The player soon finds themself in the midst of these mysteries, whether by a friend pulling them into it or by getting arrested. The backstory of the player is revealed little by little, and it soon becomes apparent that they now have a personal stake in these dangerous uncoverings.
 
 ## Act 2
+The player makes friends and travels to uncover the mystery. It seems that someone is intentionally unearthing powerful artifacts, though its unclear how much is truth and how much is falsehood. As the player grows closer to their companions, their motivation grows. This act ends with a great combat encounter and the player losing (either to capture or death) at least one companion. This point is the "emotional low" of the story.
 
 ## Act 3
+Answers quickly come to light and the pace picks up as we quickly approach our dramatic conclusion. The player meets the big final boss in-person, and this may or may not lead to a combat encounter. Soon after the player makes a big discovery, which leads to a final confrontation and battle with the final boss. This is designed to be a battle that the player can win, but only by using many of the tools and experiences learned along the way.
