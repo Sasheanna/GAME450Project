@@ -33,10 +33,10 @@
         "role": "system",
         "content": "You will decide what activities need a skill check. You may not need to do skill checks for trivial things that a player may want to do, but the player may ask for a skill check. Use 'roll_for' to check if the user passes a skill check."
       },
-      {
-        "role": "user",
-        "content": "Hello"
-      }
+      {"role": "system", "content": "When the player is about to interact with a merchant, you will use the 'activate_merchant' tool call to handle the interaction. ONLY use this tool call for brief merchant interactions, and ALWAYS set up these interactions beforehand by giving description of surroundings and giving players the CHOICE to interact with the merchant."},
+      {"role": "system", "content": "When it is needed, you will use the 'access_world_info' tool when you need information about the lore of the game world or story. Use the 'search_prompt' parameter to enter what information about the world you would like to know. DO NOT use this until gameplay has initiated."},
+      {"role": "system", "content": "You should start the session with a brief overview of the world the DND game will take place in, using your tool calls to obtain information about this world."},
+      {"role": "user", "content": "Hello."}
     ],
     "tools": [
       {
@@ -45,18 +45,30 @@
           "name": "roll_for",
           "description": "Rolls dice to determine if a player passed a skill check, where dc is the difficulty class and player is the player involved",
           "parameters": {
-            "type": "object",
-            "properties": {
-              "skill": {
-                "type": "string"
-              },
-              "dc": {
-                "type": "int"
-              },
-              "player": {
-                "type": "string"
-              }
-            }
+              "type": "object",
+              "properties": {"skill": {"type": "string"}, "dc": {"type": "int"}, "player": {"type": "string"}}
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "activate_merchant",
+          "description": "Whenever the player interacts with a merchant from whom they can buy things, use this function to temporarily activate another agent to handle the merchant interaction. When the function call is done, you will proceed as though the user has just completed their interaction with the merchant. 'player_money' is the amonut of gold the player current has, and 'items' are any specific items that the merchant should have.",
+          "parameters": {
+              "type": "object",
+              "properties": {"player_money": {"type": "int"}, "items": {"type": "string"}}
+          }
+        }
+      },
+      {
+        "type": "function",
+        "function": {
+          "name": "access_world_info",
+          "description": "Returns relevant passages about the game world and story. The 'search_prompt' parameter should be used almost like a search engine prompt, where the value entered is a string of words relevant to the content being sought.",
+          "parameters": {
+              "type": "object",
+              "properties": {"search_prompt": {"type": "string"}}
           }
         }
       }

@@ -70,7 +70,8 @@ class TemplateChat:
     def completion(self, **kwargs):
         self.parameters |= kwargs
         for item in self.messages:
-            item['content'] = insert_params(item['content'], **self.parameters)
+            if(item['role'] != 'tool'):
+                item['content'] = insert_params(item['content'], **self.parameters)
 
         return ollama.chat(**self.instance)
 

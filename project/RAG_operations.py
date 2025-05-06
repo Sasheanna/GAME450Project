@@ -147,13 +147,13 @@ def generate_response(query: str, contexts: Dict[str, List[List[str]]], model: s
     # Create prompt with context
     context_text = "\n\n".join(contexts['documents'][0])
     
-    prompt = f"""You are a storyteller that uses the provided information to tell short fantasy stories.
-    Use the following information to respond to the user.
+    prompt = f"""You are a helpful assistant to a DM, who provides information about a Dungeons and Dragons world using the given context
+    to answer the DM's question or query.
     
     Context:
     {context_text}
     
-    Question: {query}
+    DM Question: {query}
     
     Answer:"""
     

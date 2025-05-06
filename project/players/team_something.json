@@ -1,0 +1,11 @@
+{
+  "name": "Team something",
+  "class": "Bard",
+  "level": 1,
+  "stats": {
+    "strength": 8,
+    "dextrity": 14,
+    "intelligence": 16,
+    "charisma": 18
+  }
+}

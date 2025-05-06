@@ -8,25 +8,14 @@ from ollama import chat
 import random
 from util.llm_utils import run_console_chat, tool_tracker, pretty_stringify_chat, ollama_seed as seed
 
+# tool calls
+from tool_calls.access_data import access_world_info
+from tool_calls.dice_tool import roll_for
+#from tool_calls.purchase import # UNIMPLEMENTED
+
 #from RAG_operations import 
 
 @tool_tracker
-
-# DEALS WITH TOOL CALLS
-# def process_function_call(function_call):
-#     name = function_call.name
-#     args = function_call.arguments
-
-#     return globals()[name](**args)
-
-# def roll_for(skill, dc, player):
-#     n_dice = 1
-#     sides = 20
-#     roll = sum([random.randint(1, sides) for _ in range(n_dice)])
-#     if roll >= int(dc):
-#         return f'{player} rolled {roll} for {skill} and succeeded!'
-#     else:
-#         return f'{player} rolled {roll} for {skill} and failed!'
 
 def process_response(self, response):
     # Fill out this function to process the response from the LLM
@@ -47,7 +36,7 @@ def process_response(self, response):
     return response
 
 
-run_console_chat(template_file='project/DM_template.json',
+run_console_chat(template_file='project/DM2_template.json',
                  process_response=process_response,
                  end_regex=r'END SESSION')
 
@@ -85,14 +74,14 @@ options = {'temperature': 0.5, 'max_tokens': 100}
 options |= {'seed': seed(sign_your_name)}
 messages = [{'role':'system', 'content': 'Youn should have emotions like a human being and be able to convey those emotions in your responses'},]
 #chat loop
-while True:
-    response = chat(model=model, messages=messages, stream=False, options=options)
-    print(f'Agent: {response.message.content}')
-    messages.append({'role':'assistant', 'content':response.message.content})
-    message = {'role':'user', 'content': input('You: ')}
-    if message ['content'].strip().lower() == '/exit':
-        break
-    messages.append(message)
+# while True:
+#     response = chat(model=model, messages=messages, stream=False, options=options)
+#     print(f'DM: {response.message.content}')
+#     messages.append({'role':'assistant', 'content':response.message.content})
+#     message = {'role':'user', 'content': input('You: ')}
+#     if message ['content'].strip().lower() == '/exit':
+#         break
+#     messages.append(message)
 
 # save the chat 
 with open(Path('project/playerInfo.txt'),'a') as f:
