@@ -11,7 +11,7 @@ from util.llm_utils import run_console_chat, tool_tracker, pretty_stringify_chat
 # tool calls
 from tool_calls.access_data import access_world_info
 from tool_calls.dice_tool import roll_for
-#from tool_calls.purchase import # UNIMPLEMENTED
+from tool_calls.purchase import purchase
 
 #from RAG_operations import 
 
